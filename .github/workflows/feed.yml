@@ -5,7 +5,7 @@
 name: feed
 on:
   schedule:
-    - cron: "*/5 * * * *" # GitHub may skew scheduled starts a few minutes — fine for a 5-min feed
+    - cron: "2-57/5 * * * *" # off the round minutes — GitHub delays cluster at :00/:05 starts
   workflow_dispatch:
 
 permissions:
