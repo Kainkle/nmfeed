@@ -1,0 +1,25 @@
+# GitHub disables scheduled workflows after 60 days with no commits on the default branch.
+# The feed job commits on every content change, so this only matters in dead stretches
+# (feed broken, repo quiet). One weekly empty commit resets the clock — same trick the
+# keepalive-workflow action pulls, without the action.
+name: keepalive
+on:
+  schedule:
+    - cron: "17 4 * * 1" # weekly Monday 04:17 UTC — off the :00 mark to dodge cron congestion
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: empty commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "keepalive: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
