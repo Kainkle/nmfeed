@@ -1,1 +1,1 @@
-{"generated_utc":"2026-09-15T12:16:41Z","refresh_s":60,"live":[]}
+{"generated_utc":"2026-09-15T17:08:57Z","refresh_s":60,"live":[{"id":"espn:401882868","sport":"football","competition":"esp.1","start_utc":"2026-09-15T17:00Z","status":"live","detail":"7'","home":{"id":"101","name":"Rayo Vallecano","short":"RAY","code":"RAY","logo":null,"score":"1"},"away":{"id":"88","name":"Espanyol","short":"ESP","code":"ESP","logo":null,"score":"0"},"mut":{"title":"Rayo Vallecano vs Espanyol","sources":3,"group":"football"},"match":1}]}
